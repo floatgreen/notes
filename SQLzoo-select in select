@@ -24,10 +24,8 @@ FROM world
 WHERE continent = 'Europe'
 
 # 6
-SELECT name FROM world
- WHERE GDP > ALL(SELECT GDP
-                           FROM world
-                          WHERE continent='Europe' AND  GDP >0)
+SELECT name FROM world 
+WHERE GDP > ALL(SELECT GDP FROM world WHERE continent = 'Europe' AND GDP IS NOT NULL) 
                           
 # 7
 SELECT continent, name, area FROM world x
